@@ -1,4 +1,4 @@
-
+py_ignore = """
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -103,3 +103,54 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+"""
+
+py_setup_tmp = """
+from setuptools import setup, find_packages
+
+
+setup(name='%s',
+    version='0.0.0',
+    description='%s',
+    url='%s',
+    author='%s',
+    author_email='%s',
+    license='MIT',
+    include_package_data=True,
+    zip_safe=False,
+    packages=find_packages(),
+    install_requires=[%s],
+    entry_points={
+        'console_scripts': ['%s']
+    },
+
+)
+"""
+
+py_cmd_tmp = """
+import argparse
+
+
+parser = argparse.ArgumentParser(usage="Manager project, can create git , sync , encrypt your repo")
+parser.add_argument("-i","--init", help="default to initialize a projet in current dir")
+
+
+def main():
+    args = parser.parse_args()
+    
+
+if __name__ == "__main__":
+    main()
+"""
+
+read_me_tmp = """
+# %s
+
+<code>%s</code>
+
+> %s
+
+%s
+
+
+"""
