@@ -74,6 +74,8 @@ def py_init(path,name, *dependences,
         cmd = cmd + "=%s_src.cmd:main" % name
     if dependences:
         ds = ','.join(["'%s'" % i for i in dependences])
+    else:
+        ds = ""
     py_setup = py_setup_tmp % (name, desc, url, auth, email, ds, cmd)
     with open(J(path, "setup.py"), "w") as fp:
         fp.write(py_setup)
