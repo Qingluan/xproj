@@ -71,7 +71,7 @@ def py_init(path,name, *dependences,
             email='xxx@gmail.com', 
             cmd=''):
     if cmd:
-        cmd = cmd + "=%s_src.cmd:main"
+        cmd = cmd + "=%s_src.cmd:main" % name
     if dependences:
         ds = ','.join(["'%s'" % i for i in dependences])
     py_setup = py_setup_tmp % (name, desc, url, auth, email, ds, cmd)

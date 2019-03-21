@@ -10,6 +10,7 @@ parser.add_argument("-d","--dependences", nargs="*", help="set dependences ")
 parser.add_argument("-u", "--usage", help="usage to desscription")
 parser.add_argument("-l", "--list", default=False,action='store_true',help="list all repo")
 parser.add_argument("-r", "--rm", help="rm repo")
+parser.add_argument("-c", "--cmd", default='',help="set cmd name")
 
 
 
@@ -26,7 +27,11 @@ def main():
             n = args.init
         init(n)
         p = os.path.join(os.getcwd(), n)
-        py_init(p, n, *args.dependences, desc=args.usage)
+        if not args.dependences:
+            ss = []
+        else:
+            ss = args.dependences
+        py_init(p, n, *ss, desc=args.usage, cmd=args.cmd)
     
     if args.key:
         v = search(' '.join(args.key))

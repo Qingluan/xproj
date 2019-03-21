@@ -28,7 +28,7 @@ def search(key):
     for v,r in c.fuzzy_search(Proj, key):
         return v,r
 
-def create(name, path, desc=''):
+def create(name, path, desc=' some desc'):
     c = Con(DB)
     d = Proj(name=name, path=path, desc=desc)
     d.save(c)

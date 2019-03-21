@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 
 setup(name='x-mroy-0',
-    version='0.0.0',
+    version='0.0.1',
     description='a manager package',
     url='https://github.com/Qingluan/xproj.git',
     author='Qing luan',
